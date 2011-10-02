@@ -1,0 +1,50 @@
+table.TABLE1 {
+    border-width: 1px;
+    border-spacing: 2px;
+    border-style: solid;
+    border-color: gray;
+    border-collapse: separate;
+    background-color: white;
+}
+table.TABLE1 th {
+    border-width: 1px;
+    padding: 1px;
+    border-style: ridge;
+    border-color: gray;
+    background-color: white;
+    -moz-border-radius: 0px 0px 0px 0px;
+}
+table.TABLE1 td {
+    border-width: 1px;
+    padding: 1px;
+    border-style: ridge;
+    border-color: gray;
+    background-color: white;
+    -moz-border-radius: 0px 0px 0px 0px;
+}
+table.TABLE2 {
+    border-width: 1px;
+    border-spacing: 2px;
+    border-style: dotted;
+    border-color: gray;
+    border-collapse: separate;
+    background-color: white;
+}
+table.TABLE2 th {
+    border-width: 1px;
+    padding: 1px;
+    border-style: dotted;
+    border-color: gray;
+    background-color: rgb(250, 240, 230);
+    -moz-border-radius: 0px 0px 0px 0px;
+}
+table.TABLE2 td {
+    border-width: 1px;
+    padding: 1px;
+    border-style: dotted;
+    border-color: gray;
+    background-color: rgb(250, 240, 230);
+    -moz-border-radius: 0px 0px 0px 0px;
+}
+
+

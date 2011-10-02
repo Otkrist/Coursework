@@ -1,0 +1,181 @@
+<h1><font face="verdana" color="green">Computational Photography</font></h1>
+
+<h2>Solution 0</h2>
+<link rel="stylesheet" 
+type="text/css" href="style.css" />
+
+
+
+In this assignment we look at effects of mixing color channels and varying light sources. 
+I used a set up with 3 light sources, All three sources were of identical make.
+The three images I obtained come below.
+</br>
+
+<table class="TABLE1">
+<tr>
+    <td>
+    <img src="images/IMG_2025.JPG" height=426 width=568></img>
+    </td>
+    <td>
+    <img src="images/IMG_2024.JPG" height=426 width=568></img>
+    </td>
+    <td>
+    <img src="images/IMG_2023.JPG" height=426 width=568></img>
+    </td>
+</tr>
+<tr>
+    <td>
+    Light Source in Right
+    </td>
+    <td>
+    Light Source in Left
+    </td>
+    <td>
+    Light Source in Front
+    </td>
+</table>
+
+
+</br>
+</br>
+We can mix color channels from source (a), source (b), source (c) in various innovative ways.
+Here are some of interesting solutions that I obtained. 
+</br>
+</br>
+<table class="TABLE2">
+<tr>
+    <td>
+    <img src="images/simple_result1.png" height=426 width=568></img>
+    </td>
+    <td>
+    <img src="images/simple_result2.png" height=426 width=568></img>
+    </td>
+</tr>
+<tr>
+    <td>
+    Image Color Channels are Added.
+    A=(A1.r,A2.g,A3.b)
+    </td>
+    <td>
+    Image Color Channels are Added and normalised.
+    A=(A1.r<sup>2</sup>,A2.g<sup>2</sup>,A3.b<sup>2</sup>)/(A1.r<sup>2</sup>+A2.g<sup>2</sup>+A3.b<sup>2</sup>)
+    </td>
+</tr>
+<tr>
+    <td>
+    <img src="images/simple_result4.png" height=426 width=568></img>
+    </td>
+    <td>
+    <img src="images/simple_result5.png" height=426 width=568></img>
+    </td>
+</tr>
+<tr>
+    <td>
+    Only Maximum Color Channel is taken.
+    This picture can be used to identify which light source is most active in which region.
+    </td>
+    <td>
+    Only Minumum Color Channel is taken.
+    This picture depicts which light source is least active in which region.
+    </td>
+</tr>
+<tr>
+    <td>
+    <img src="images/simple_result3.png" height=426 width=568></img>
+    </td>
+    <td>
+    <img src="images/simple_result6.png" height=426 width=568></img>
+    </td>
+</tr>
+<tr>
+    <td>
+    The color channels are made cosine functions of their respective functions. The reason behind this was to induce inverse variation of color intensity
+    preserving intenisity&gt;1 bounds.
+    </td>
+    <td>
+    Max and Min color channels are added.
+    </td>
+</tr>
+</table>
+
+</br>
+</br>
+
+I came up with a mathematical model in which we treat color information of each of 3 input images as a column vector in a matrix of 3 x 3.
+And I obtained the color channels of the output image by performing matrix operations on this matrix and multiplying it with a vector.
+
+The results with the operand applied come below.
+<table class="TABLE2">
+<th>
+    <td>
+    <b>  Image Output By mixing only one color channel from each image. (A=Diagonal)</b>
+    </td>
+    <td>
+    <b> Image output by using all color channels to construct A matrix. </b>
+    <td>
+    <b>    Operand     </b>
+    </td>
+</th>
+<tr>
+    <td>
+    <img src="images/advanced_result1.png" height=426 width=568></img>
+    </td>
+    <td>
+    </td>
+    <td>
+    Simple multiplication by [1;1;1]
+    </td>
+</tr>
+<tr>
+    <td>
+    <img src="images/advanced_result2_1.png" height=426 width=568></img>
+    </td>
+    <td>
+    <img src="images/advanced_result2_2.png" height=426 width=568></img>
+    </td>
+    <td>
+    Multiplication by diamond shaped [[0;0.33;0],[0.33;0;0.33],[0;0.33;0]]
+    </td>
+</tr>
+<tr>
+    <td>
+    <img src="images/advanced_result3_1.png" height=426 width=568></img>
+    </td>
+    <td>
+    <img src="images/advanced_result3_2.png" height=426 width=568></img>
+    </td>
+    <td>
+    (A*A+2*A+I)[1;1;1]
+    </td>
+</tr>
+<tr>
+    <td>
+    <img src="images/advanced_result4_1.png" height=426 width=568></img>
+    </td>
+    <td>
+    <img src="images/advanced_result4_2.png" height=426 width=568></img>
+    </td>
+    <td>
+    (A*A-2*A+I)[1;1;1]
+    </td>
+</tr>
+<tr>
+    <td>
+    <img src="images/advanced_result5_1.png" height=426 width=568></img>
+    </td>
+    <td>
+    <img src="images/advanced_result5_2.png" height=426 width=568></img>
+    </td>
+    <td>
+    (A*A*A-3*A*A+3*A-I)[1;1;1]
+    </td>
+</tr>
+</table>
+
+
+</br>
+</br>
+Download Matlab Code for this assignment <a href="matlab_code.zip">here.</a>
+main_loop.m is the main file. The color mixing is done in extension.m
+For more mathematical analyses see main_loop_advanced.m and extension_advanced.m
+
