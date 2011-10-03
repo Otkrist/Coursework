@@ -1,6 +1,7 @@
 function [A b c]=getChebyShev(f1,d,r)
-% give me function and degree, range and N
+% give me function(value of function at N points) and degree, range( bunch of xi corresponding to function)
 % I give you linear programming back
+% the first 2*d values in solution of min c.x, A*x = b are the coefficients of polynomial approximation
 
 
 N = size(r,1);
