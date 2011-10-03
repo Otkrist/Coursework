@@ -37,14 +37,17 @@ poly = zeros(d+1,1);
 polynomial_s = '0';
 for j=1:d+1
   poly(j) =  x(2*j-1) - x(2*j);
-  polynomial_s = [polynomial_s '+%ft^' sprintf('%d',j-1) ];
+  %polynomial_s = [polynomial_s '+%fx^' sprintf('%d',j-1) ];
 end
 
-polynomial_s;
-polynomial_s = sprintf(polynomial_s,poly)
-f_sol = inline(polynomial_s)
-funct{deg+1} = f_sol
+%polynomial_s;
+%polynomial_s = sprintf(polynomial_s,poly)
+%f_sol = inline(polynomial_s)
+%funct{deg+1} = f_sol
 
-v1 = f_sol(r);
+%h_func = @(x)(f_sol(x))
+%h_func= poly2sym(poly(end:-1:1));
+%v1 = arrayfun(h_func,r);
+v1 = polyval(poly(end:-1:1),r);
 plot(r,v1,'r');
 end
