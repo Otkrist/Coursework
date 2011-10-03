@@ -8,16 +8,20 @@ close all
 %simplesimplex_succint(c,A,b,[3 4])
 
 N = 100;
-d = 0;
+d = 3;
 a = -1;
 b = 1;
 
 
-r=linspace(a,b,N)';
-f1 = exp(r);  
+r = linspace(a,b,N)';
+f1 = exp(r);
 
 [A b c] =getChebyShev(f1,d,r);
 size(A)
 
-[p fval]=linprog(-b,A',c);
+% A x = b
+% minimize ( c . x )
+%[p fval]=linprog(-b,A',c);
+N=size(A,2);
+[x,fval] = linprog(c,-eye(N,N),zeros(N,1),A,b);
 
