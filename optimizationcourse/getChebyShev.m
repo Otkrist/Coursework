@@ -4,7 +4,7 @@ function [A b c]=getChebyShev(f1,d,r)
 
 
 N = size(r,1);
-A = zeros(3*N,2*N+2*N+2+2*d+2);
+A = zeros(2*N,2*N+2*N+2+2*d+2);
 
 c = zeros(size(A,2),1);
 c(end) = -1;
@@ -16,6 +16,7 @@ for i=1:N,
   xi = r(i);
   fi = f1(i);
 
+  % power for x %
   xp = 1;
   for j=0:d,
     A(i,2*j+1) = xp;
