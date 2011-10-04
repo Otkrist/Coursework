@@ -39,6 +39,16 @@ end
 
 v{deg+1} = polyval(poly(end:-1:1),r);
 soln_err = [soln_err x(end-1)-x(end)];
+
+
+taylor_poly = [1,1,1.0/2,1.0/6,1.0/24,1.0/120];
+tayl{deg+1} = polyval(taylor_poly((deg+1):-1:1),r);
+
+figure;
+plot(r,f1,r,v{deg+1},r,tayl{deg+1});
+legend('e^x','cheby shev','taylor');
+title(sprintf('Comparison plot degree %d',deg))
+saveas(gcf,sprintf('Chebyshevvstaylordeg%d.png',deg));
 end
 
 figure;
@@ -52,3 +62,4 @@ figure
 plot([0:5],soln_err);
 title('Solution Error');
 saveas(gcf,'SolutionError.png')
+
